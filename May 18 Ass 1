@@ -1,0 +1,23 @@
+def subarray_sum(l,k):
+    n=len(l)
+    if n==0:
+        return 0
+    count=0
+    dic={}
+    curr=0
+    for i in range(n):
+        curr+=l[i]
+        if curr==k:
+            count+=1
+        if curr-k in dic:
+            count+=1
+        if curr in dic:
+            dic[curr]+=1
+        else:
+            dic[curr]=1
+    return count
+l=list(map(int,input().split()))
+k=int(input())
+print(subarray_sum(l,k))
+    
+    
